@@ -1,0 +1,19 @@
+# Fichiers temporaires Python
+__pycache__/
+*.py[cod]
+
+# Environnements virtuels
+venv/
+.venv/
+env/
+
+# Fichiers de configuration secrets
+.env
+.env.*
+
+# Journaux
+*.log
+
+# Fichiers système
+.DS_Store
+Thumbs.db
