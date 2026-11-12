@@ -13,81 +13,90 @@ Il permet aux étudiants d'obtenir des réponses concernant les horaires, les in
 - Faciliter l'accès aux informations universitaires.
 - Améliorer l'expérience des étudiants.
 - Automatiser les réponses aux questions fréquentes.
-- Orienter les étudiants vers le service administratif lorsque nécessaire.
+- Orienter les étudiants vers le service administratif lorsque cela est nécessaire.
 
 ## ✨ Fonctionnalités
 
-- Détection automatique des intentions.
-- Compréhension des questions en langage naturel.
-- Classification des intentions avec Machine Learning.
-- Gestion du contexte conversationnel.
-- Mémorisation de certaines informations de conversation.
-- Réponses de secours lorsque la question n'est pas comprise.
-- Interface web interactive.
-- API REST avec Flask.
-- Journalisation des intentions et des niveaux de confiance.
+- Détection des intentions des utilisateurs.
+- Reconnaissance des questions en langage naturel.
+- Réponses automatiques aux questions fréquentes.
+- Gestion du contexte de conversation.
+- Mémorisation du prénom de l'utilisateur.
+- Gestion des questions non reconnues.
+- Possibilité d'orienter l'utilisateur vers un interlocuteur humain.
+- Évaluation des performances du modèle.
 
-## 🛠️ Technologies utilisées
+## 🧠 Technologies utilisées
 
-- Python
-- Streamlit
-- Flask
-- Scikit-learn
-- TF-IDF
-- Logistic Regression
-- Git et GitHub
+| Technologie | Utilisation |
+|---|---|
+| Python | Langage de programmation |
+| Scikit-learn | Classification des intentions |
+| TF-IDF | Transformation des textes en vecteurs |
+| Logistic Regression | Modèle de classification |
+| Streamlit | Interface conversationnelle |
+| Flask | API du chatbot |
+| Git | Gestion des versions |
+| GitHub | Hébergement du code source |
 
-## 📂 Structure du projet
+## 🏗️ Architecture du projet
 
 ```text
-IRGIB-CONNECT-AI/
+IRGIB_CONNECT_AI/
 │
-├── api.py
-├── app.py
 ├── chatbot.py
-├── evaluation.py
 ├── modele_ml.py
-├── .gitignore
-└── README.md
+├── evaluation.py
+├── app.py
+├── api.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
-## 🚀 Installation
+## ⚙️ Installation
 
-Cloner le projet :
+### 1. Cloner le dépôt
 
 ```bash
 git clone https://github.com/IssoufouAllade/IRGIB-CONNECT-AI.git
 ```
 
-Entrer dans le dossier :
+### 2. Entrer dans le dossier
 
 ```bash
 cd IRGIB-CONNECT-AI
 ```
 
-Installer les dépendances :
+### 3. Installer les dépendances
 
 ```bash
-pip install streamlit flask scikit-learn
+pip install -r requirements.txt
 ```
 
-## ▶️ Lancement de l'application
+## ▶️ Lancement du projet
 
-### Interface web Streamlit
+### Interface Streamlit
 
 ```bash
 streamlit run app.py
 ```
 
-### API REST Flask
+### API Flask
 
 ```bash
-flask --app api run
+python api.py
 ```
 
-L'API sera accessible localement à l'adresse :
+## 🧪 Évaluation
 
-`http://127.0.0.1:5000`
+Le projet comprend un module d'évaluation permettant de tester la capacité du chatbot à reconnaître les intentions des utilisateurs et à gérer les questions non reconnues.
+
+Pour lancer les tests :
+
+```bash
+python evaluation.py
+```
 
 ## 👥 Équipe du projet
 
@@ -95,12 +104,10 @@ L'API sera accessible localement à l'adresse :
 - Chabi Rayan
 - Effiboley Mael
 
-## 🎓 Contexte académique
+## 📚 Cadre académique
 
-Projet réalisé dans le cadre des travaux pratiques de la filière TIC.
+Projet réalisé dans le cadre des travaux pratiques de la filière Technologies de l'Information et de la Communication (TIC) à IRGIB Africa.
 
-**Établissement : IRGIB Africa**
+## 📄 Licence
 
----
-
-*IRGIB CONNECT AI — L'information universitaire à portée de conversation.*
+Projet académique — IRGIB CONNECT AI.
