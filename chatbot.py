@@ -137,6 +137,23 @@ def detecter_intention(message):
 
     return meilleure
 def repondre(message):
+
+    # Sécurité : vérifier le type du message
+    if not isinstance(message, str):
+        return "Veuillez saisir un message valide."
+
+    # Supprimer les espaces inutiles
+    message = message.strip()
+
+    # Vérifier que le message n'est pas vide
+    if not message:
+        return "Veuillez saisir une question."
+
+    # Limiter la longueur du message à 500 caractères
+    if len(message) > 500:
+        logging.warning("Message refusé : longueur supérieure à 500 caractères.")
+        return "Votre message est trop long. Veuillez limiter votre question à 500 caractères."
+
     texte = normaliser(message)
 
         # Orientation vers un humain
