@@ -1,7 +1,12 @@
 import streamlit as st
 
 from chatbot import repondre
-from database import creer_base, enregistrer_echange, recuperer_historique
+from database import (
+    creer_base,
+    enregistrer_echange,
+    recuperer_historique,
+    supprimer_historique
+)
 
 # Initialisation de la base de données
 creer_base()
@@ -70,10 +75,23 @@ if message:
     st.session_state.historique.append(("user", message))
     st.session_state.historique.append(("assistant", reponse))
 
-# Bouton pour effacer la conversation
-if st.button("Effacer la conversation"):
+# Suppression de l'historique
+st.subheader("Gestion de l'historique")
+
+confirmation = st.checkbox(
+    "Je confirme vouloir supprimer toutes les conversations enregistrées."
+)
+
+if st.button(
+    "Supprimer définitivement",
+    disabled=not confirmation
+):
+    supprimer_historique()
     st.session_state.historique = []
+
+    st.success("Historique supprimé avec succès.")
     st.rerun()
+
 
 # Pied de page
 st.divider()

@@ -19,11 +19,15 @@ Il permet aux étudiants d'obtenir des réponses concernant les horaires, les in
 
 - Détection des intentions des utilisateurs.
 - Reconnaissance des questions en langage naturel.
+- Classification automatique des intentions avec Machine Learning.
 - Réponses automatiques aux questions fréquentes.
 - Gestion du contexte de conversation.
 - Mémorisation du prénom de l'utilisateur.
 - Gestion des questions non reconnues.
-- Possibilité d'orienter l'utilisateur vers un interlocuteur humain.
+- Orientation vers un interlocuteur humain.
+- Enregistrement des conversations dans une base de données SQLite.
+- Gestion et suppression de l'historique des conversations.
+- API REST avec Flask.
 - Évaluation des performances du modèle.
 
 ## 🧠 Technologies utilisées
@@ -35,24 +39,29 @@ Il permet aux étudiants d'obtenir des réponses concernant les horaires, les in
 | TF-IDF | Transformation des textes en vecteurs |
 | Logistic Regression | Modèle de classification |
 | Streamlit | Interface conversationnelle |
-| Flask | API du chatbot |
+| Flask | API REST du chatbot |
+| SQLite | Stockage des conversations |
 | Git | Gestion des versions |
 | GitHub | Hébergement du code source |
 
 ## 🏗️ Architecture du projet
 
 ```text
-IRGIB_CONNECT_AI/
+IRGIB_CHATBOT/
 │
 ├── chatbot.py
 ├── modele_ml.py
 ├── evaluation.py
 ├── app.py
 ├── api.py
+├── database.py
+├── multilingual.py
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 ```
+
+La base de données `irgib_connect.db` est créée localement par le programme.
 
 ## ⚙️ Installation
 
@@ -71,7 +80,7 @@ cd IRGIB-CONNECT-AI
 ### 3. Installer les dépendances
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ## ▶️ Lancement du projet
@@ -79,7 +88,7 @@ pip install -r requirements.txt
 ### Interface Streamlit
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 ### API Flask
@@ -87,6 +96,8 @@ streamlit run app.py
 ```bash
 python api.py
 ```
+
+L'API fonctionne localement sur le port 5000.
 
 ## 🧪 Évaluation
 

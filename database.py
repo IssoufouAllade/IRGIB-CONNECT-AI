@@ -54,3 +54,12 @@ def recuperer_historique(limite=50):
     connexion.close()
 
     return resultats
+
+def supprimer_historique():
+    connexion = sqlite3.connect(DB_NAME)
+    curseur = connexion.cursor()
+
+    curseur.execute("DELETE FROM conversations")
+
+    connexion.commit()
+    connexion.close()
