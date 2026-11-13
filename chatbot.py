@@ -2,6 +2,7 @@ import re
 import unicodedata
 import logging
 from modele_ml import detecter_intention_ml
+from multilingue import detecter_langue, traduire_question
 
 # Configuration de la journalisation
 logging.basicConfig(
@@ -90,6 +91,23 @@ BASE = {
         "reponse": "Je n'ai pas compris votre demande. Pouvez-vous reformuler ou contacter le service administratif ?"
     }
 }
+REPONSES_ANGLAIS = {
+    "salutation": "Hello! Welcome to IRGIB CONNECT AI. How can I help you?",
+
+    "horaires": "I can help you find information about your class schedule. Which class are you in?",
+
+    "inscription": "I can provide information about admission requirements and registration documents.",
+
+    "bibliotheque": "I can provide information about the library and available documents.",
+
+    "salles": "I can help you find information about your classroom.",
+
+    "examens": "I can provide information about the examination schedule.",
+
+    "remerciement": "You're welcome! I'm happy to help you.",
+
+    "inconnu": "I did not understand your question. Could you please rephrase it?"
+}
 contexte = {
     "prenom": None,
     "classe": None,
@@ -156,13 +174,19 @@ def repondre(message):
             return "Vous parlez toujours de votre emploi du temps. Vous souhaitez le consulter sur téléphone."
 
     # Détecter l'intention
-    intention, confiance = detecter_intention_ml(message, seuil=0.32)
+    langue = detecter_langue(message)
 
+    message_modele = traduire_question(message) if langue == "anglais" else message
+
+    intention, confiance = detecter_intention_ml(message_modele, seuil=0.32)
     logging.info(
-    "intention=%s confiance=%.2f",
-    intention,
-    confiance
+        "intention=%s confiance=%.2f",
+        intention,
+        confiance
 )
+    if langue == "anglais":
+        return REPONSES_ANGLAIS.get(intention, REPONSES_ANGLAIS["inconnu"])
+    
     if intention == "remerciement":
         return "Avec plaisir ! Je reste disponible si vous avez d'autres questions."
 

@@ -1,5 +1,10 @@
 import streamlit as st
+
 from chatbot import repondre
+from database import creer_base, enregistrer_echange, recuperer_historique
+
+# Initialisation de la base de données
+creer_base()
 
 # Configuration de la page
 st.set_page_config(
@@ -45,6 +50,9 @@ if message:
             "Désolé, une erreur est survenue. "
             "Veuillez réessayer ou contacter un responsable."
         )
+        
+    # Enregistrer la conversation dans SQLite
+        enregistrer_echange(message, reponse)
 
     # Afficher la réponse
     with st.chat_message("assistant"):
