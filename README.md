@@ -106,7 +106,7 @@ python evaluation.py
 
 ## 📚 Cadre académique
 
-Projet réalisé dans le cadre des travaux pratiques de la filière Technologies de l'Information et de la Communication (TIC) à IRGIB Africa.
+Projet réalisé dans le cadre des travaux pratiques de la filière Technologies de l'Information et de la Communication (TIC) à IRGIB Africa
 
 ## 📄 Licence
 
