@@ -9,7 +9,8 @@ logging.basicConfig(
     filename="chatbot.log",
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
-    encoding="utf-8"
+    encoding="utf-8",
+    force=True
 )
 
 def normaliser(texte):
